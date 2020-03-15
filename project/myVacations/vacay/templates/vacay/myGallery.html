@@ -1,0 +1,41 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+  <!-- PAGE HEADER -->
+  
+  <header id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center ">
+            
+               <p class="h1"> <strong>Oh!The places we go</strong> </p>  
+            <span style="font-size:50px">&#x1F6EB; </span>
+          </p>
+       
+        </div>
+      </div>
+    </div>
+  </header> 
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+                <p class="h1">My Trip to {{destination.name}}</p>
+          <p>{{destination.from_date}} To {{destination.to_date}}
+              <h2></h2>
+              <p>{{destination.description}}</p>
+              
+              <p><a href="{{destination.album_url}}">Revisit All memories</a></p>
+            </div>
+            <div class="col-md-6">
+              <img src="{{destination.album_cover.url}}" alt="" class="img-fluid rounded-circle d-none d-md-block album-img">
+              
+            </div>
+          </div>
+        </div>
+      </section>   
+
+{%endblock content%}
+
