@@ -37,10 +37,31 @@ dojo = {
 }
 def print_dojo(dojo):
   for key in dojo.keys():
-   print(len(dojo[key]))
-   for item in key:
-     print (item)
+    print(len(dojo[key]))
+    for item in dojo[key]:
+      print(item) 
+ 
 
     # print (len(dojo[key]))
 
 print_dojo(dojo)
+
+# ****************** Given a Dictionary. The task is to print the dictionary in the table format.
+def print_users(users):
+  print(f"NAME AGE COURSE")
+  for key,value in users.items():
+       name, age, course = value 
+       print (f"{key}: {name}, {age}, {course}")
+       
+def print_usersII(users):
+  for key in users.keys():
+    print(f"{users[key][0]} {users[key][1]} {users[key][2]} ")
+    # for item in users[key]:
+    #   print (item)
+dojo_users = {
+1: ["Samuel", 21, "Data Structures"],
+2: ["Richie", 20, "Machine Learning"],
+3: ["Lauren", 21, "OOPS with java"],
+}
+print_users(dojo_users)
+print_usersII(dojo_users)
