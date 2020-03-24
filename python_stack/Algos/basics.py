@@ -1,10 +1,10 @@
 def basic():
     for i in range(151):
-        print i
+        print (i)
 
 def multiples_five():
     for i in range(5,1001,5):
-        print i
+        print (i)
 
 # Counting, the Dojo Way - Print integers 1 to 100.
 #  If divisible by 5, print "Coding" instead. 
@@ -27,7 +27,7 @@ def add_odd():
 # Countdown by Fours - Print positive numbers starting at 2018, counting down by fours.
 def print_positive():
     for i in range(2018,0,-4):
-        print i
+        print (i)
 
 
 # basic()
