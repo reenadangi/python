@@ -88,8 +88,21 @@ class SLL:
             runner=runner.next
         return self
 
+# Middle of the Linked List
+# If there are two middle nodes, return the second middle node.
+    def middle(self):
+        if self.head:
+            slow=self.head
+            fast=self.head
+            while fast and fast.next:
+                slow=slow.next
+                fast=fast.next.next
+            print (f"Middle:{slow.value}")
+
+
 node1=Node(100)
 node2=Node(200)
 sll=SLL()
-sll.addNode(node1).addNode(node2).addNodeFront(Node(80)).addNode(Node(67)).remove(200).remove(80).addNode(Node(4)).addNode(Node(14)).display().reverse().display().sort().display()
-            
+sll.addNode(node1).addNode(node2).addNodeFront(Node(80)).addNode(Node(67)).remove(200).remove(80).addNode(Node(4)).addNode(Node(14)).display().reverse().display()
+
+sll.middle()            
