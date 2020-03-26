@@ -74,8 +74,22 @@ class SLL:
                 prev=temp 
             self.head=prev
         return self
+        # Do it with merge sort
+    def sort(self):
+        if self.head:
+            print("Sort")
+            runner=self.head
+            while runner.next:
+                runner2=runner.next
+                while runner2:
+                    if runner.value>runner2.value:
+                        runner.value,runner2.value=runner2.value,runner.value
+                    runner2=runner2.next
+            runner=runner.next
+        return self
+
 node1=Node(100)
 node2=Node(200)
 sll=SLL()
-sll.addNode(node1).addNode(node2).addNodeFront(Node(80)).addNode(Node(67)).remove(200).remove(80).addNode(Node(4)).addNode(Node(14)).display().reverse().display()
+sll.addNode(node1).addNode(node2).addNodeFront(Node(80)).addNode(Node(67)).remove(200).remove(80).addNode(Node(4)).addNode(Node(14)).display().reverse().display().sort().display()
             
