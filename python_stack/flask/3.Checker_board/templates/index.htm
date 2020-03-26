@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+
+</head>
+<body>
+    <H1> Welcome !
+    </H1>
+    {% set color1="#d2e8dc" %}
+    {% set color2="#009688" %}
+    {% set x=row//2 %} 
+    {% set y=col//2 %} 
+    
+    {% for x in range(x):%}
+    
+        {% for x in range(y): %}
+            <div class="box" style="background-color:{{color1}}"></div>
+            <div class="box" style="background-color:{{color2}}"></div>
+        {%endfor%}
+        <br>
+        {% for x in range(y): %}
+        <div class="box" style="background-color:{{color2}}"></div>
+        <div class="box" style="background-color:{{color1}}"></div>
+        {%endfor%}
+        <br>
+    {%endfor%}
+    <script type="text/javascript" src="{{url_for('static',filename='js/main.js')}}"></script>
+   </body>
+
+</html>

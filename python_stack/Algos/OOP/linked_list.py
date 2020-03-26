@@ -150,12 +150,6 @@ class SLL:
         return new_node.next
              
 
-           
-
-            
-
-
-
 node1=Node(100)
 node2=Node(200)
 sll=SLL()
@@ -166,7 +160,6 @@ sll.max()
 sll.next_greater().display()
 sll2=SLL()
 sll3=SLL()
-
 sll2.addNode(Node(2)).addNode(Node(3)).addNode(Node(9))
 sll3.addNode(Node(1)).addNode(Node(4)).addNode(Node(8))
 sll4=sll2.merge_sorted(sll3)

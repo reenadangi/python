@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+}
+h1{
+    color: aquamarine;
+} 
+div{
+     height:150px;
+     width: 150px;
+     border: 2px solid black ;
+     background-color: aqua;
+     display: inline-block
+ }
+ p{
+     color:red
+ }
