@@ -21,6 +21,7 @@ class SLL:
             while(runner):
                 print(runner.value)
                 runner=runner.next
+        return self
     def addNodeFront(self,node):
         if self.head:
             temp=self.head
@@ -60,8 +61,21 @@ class SLL:
                     else:
                         runner=runner.next
             return self
+        # Reverse a linked list
+    def reverse(self):
+        if self.head:
+            print("IN REVERSE")
+            prev=None
+            runner=self.head
+            while(runner):
+                temp=runner
+                runner=runner.next
+                temp.next=prev
+                prev=temp 
+            self.head=prev
+        return self
 node1=Node(100)
 node2=Node(200)
 sll=SLL()
-sll.addNode(node1).addNode(node2).addNodeFront(Node(80)).addNode(Node(67)).remove(200).remove(80).display()
+sll.addNode(node1).addNode(node2).addNodeFront(Node(80)).addNode(Node(67)).remove(200).remove(80).addNode(Node(4)).addNode(Node(14)).display().reverse().display()
             
