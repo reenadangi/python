@@ -108,7 +108,54 @@ class SLL:
                     max=runner.value
                 runner=runner.next
             print(f"MAX {max}")
+        return self
+    # Next Greater Node In Linked List
+    def next_greater(self):
+        if self.head:
+            runner=self.head
+            while(runner.next):
+                runner2=runner.next
+                while(runner2):
+                    if runner.value<runner2.value:
+                        runner.value=runner2.value
+                        break
+                    runner2=runner2.next
+                if not runner2:
+                    runner.value=0
+                runner=runner.next
+            return self
+                                
+    # Merge 2 sorted list
+    def merge_sorted(self,sll2):
+        if self.head is None:
+            return sll2
+        if sll2.head is None:
+            return self
+        l1=self.head
+        l2=sll2.head
+        new_node=Node(-1)
+        head=new_node
+        while(l1 and l2):
+            if l1.value<l2.value:
+                new_node.next=l1
+                l1=l1.next
+            else:
+                new_node.next=l2
+                l2=l2.next
+            new_node=new_node.next
+        if l1:
+            new_node.next=l1
+        elif l2:
+            new_node.next=l2
+        return new_node.next
+             
+
+           
+
             
+
+
+
 node1=Node(100)
 node2=Node(200)
 sll=SLL()
@@ -116,3 +163,11 @@ sll.addNode(node1).addNode(node2).addNodeFront(Node(80)).addNode(Node(67)).remov
 
 sll.middle()            
 sll.max()
+sll.next_greater().display()
+sll2=SLL()
+sll3=SLL()
+
+sll2.addNode(Node(2)).addNode(Node(3)).addNode(Node(9))
+sll3.addNode(Node(1)).addNode(Node(4)).addNode(Node(8))
+sll4=sll2.merge_sorted(sll3)
+sll4.display()
