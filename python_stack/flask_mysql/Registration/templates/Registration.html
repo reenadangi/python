@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>User Registration</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+    integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script defer src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script defer src="{{ url_for('static', filename='register.js')}}" ></script>
+  </head>
+
+<body>
+  <div id="wrapper" class="container" id="regForm">
+    <h1>Register</h1>
+    {% with messages = get_flashed_messages() %}     
+    <!-- declare a variable called messages -->
+        {% if messages %}                            
+    <!-- check if there are any messages -->
+        {% for message in messages %}            
+    <!-- loop through the messages -->
+        <small>{{message}}</small>                   
+    <!-- display each message in a paragraph tag -->
+            {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form action="/create_user" method="POST">
+      <div id="emailMsg"></div>
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" class="form-control" name="firstname" placeholder="First Name" required="true">
+      </div>
+      <div class="form-group form-dark">
+        <label for="last-name">Last Name</label>
+        </td>
+        <input type="text" class="form-control" name="lastname" placeholder="Last Name" required="true">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control"  name="email" placeholder="email" required="true">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="password" required="true">
+      </div>
+      <div class="form-group">
+        <label for="rpassword">Repete password</label>
+        <input type="password" class="form-control" name="rpassword" placeholder="password" required="true">
+      </div>
+
+      <input type="submit" class="btn btn-primary" value="Register">
+
+    </form>
+  </div>
+</body>
+</html>
