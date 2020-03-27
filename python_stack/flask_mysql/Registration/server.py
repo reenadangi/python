@@ -40,7 +40,7 @@ def home():
     print(cities)
     # get user's Travel details 
     mysql = connectToMySQL('first_flask')
-    travel=mysql.query_db(f"select u.first_name, c.city_name,ut.comments from user_travel ut, cities c,users u where u.id=ut.users_id and ut.cities_city_id=c.city_id and ut.users_id={session['userid']};")
+    travel=mysql.query_db(f"select ut.id, u.first_name, c.city_name,ut.comments from user_travel ut, cities c,users u where u.id=ut.users_id and ut.cities_city_id=c.city_id and ut.users_id={session['userid']};")
     print(travel)
 
 
@@ -217,16 +217,16 @@ def checkemail():
 
 
 
-# @app.route("/users/<id>/destroy")
-# def delete_user(id):
-#     print("delete")
-#     mySql=connectToMySQL("first_flask")
-#     query=f"DELETE FROM friends WHERE id={id};"
-#     mysql = connectToMySQL('first_flask')
-#     print("Connected to mysql", mysql)
-#     mysql.query_db(query)
-#     print("deleted","$"*20)
-#     return redirect("/")
+@app.route("/<id>/destroy")
+def delete_user(id):
+    print("delete")
+    mySql=connectToMySQL("first_flask")
+    query=f"DELETE FROM user_travel WHERE id={id};"
+    mysql = connectToMySQL('first_flask')
+    print("Connected to mysql", mysql)
+    mysql.query_db(query)
+    print("deleted","$"*20)
+    return redirect("/home")
 
 # @app.route("/users/<id>/update")
 # def user_update(id):

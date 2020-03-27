@@ -87,10 +87,6 @@ def create_user():
 @app.route("/save", methods=["POST"])
 def save_user():
     print("In save user")
-    return redirect("/")
-
-@app.route("/update_user", methods=["POST"])
-def update_user():
     print("*"*50, "creating a new user" ,request.form["firstname"],request.form["id"])
     id=request.form["id"]
     mySql=connectToMySQL("first_flask")
@@ -109,6 +105,7 @@ def update_user():
 
     print(f"new_user_id{new_user_id}")
     return redirect("/")
+
 
 
 
