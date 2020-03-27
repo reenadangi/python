@@ -149,18 +149,38 @@ class SLL:
             new_node.next=l2
         return new_node.next
              
+    def odd_even_list(self):
+        print("In Odd even")
+        if self.head and self.head.next:
+            tmpnode=self.head.next
+            odd=self.head
+            even=self.head.next
+            while odd.next and even.next:
+                odd.next=odd.next.next
+                odd=odd.next
+                even.next=even.next.next
+                even=even.next
+            odd.next=tmpnode
+            return self
+        else:
+            return self    
 
 node1=Node(100)
 node2=Node(200)
 sll=SLL()
 sll.addNode(node1).addNode(node2).addNodeFront(Node(80)).addNode(Node(67)).remove(200).remove(80).addNode(Node(4)).addNode(Node(14)).display().reverse().display()
 
-sll.middle()            
-sll.max()
-sll.next_greater().display()
-sll2=SLL()
-sll3=SLL()
-sll2.addNode(Node(2)).addNode(Node(3)).addNode(Node(9))
-sll3.addNode(Node(1)).addNode(Node(4)).addNode(Node(8))
-sll4=sll2.merge_sorted(sll3)
-sll4.display()
+
+# sll.middle()            
+# sll.max()
+# sll.next_greater().display()
+# sll2=SLL()
+# sll3=SLL()
+# sll2.addNode(Node(2)).addNode(Node(3)).addNode(Node(9))
+# sll3.addNode(Node(1)).addNode(Node(4)).addNode(Node(8))
+# sll4=sll2.merge_sorted(sll3)
+# sll.display()
+newSll=SLL()
+newSll.addNode(Node(1)).addNode(Node(2)).addNode(Node(3)).addNode(Node(4)).addNode(Node(5)).display()
+newSll.odd_even_list().display()
+sll.odd_even_list().display()
