@@ -92,9 +92,9 @@ def validuser():
 
 
 
-# @app.route("/Add_newuser.htm")
+# @app.route("/Add_newuser.html")
 # def add_newuser():
-#     return render_template("add_newuser.htm")
+#     return render_template("add_newuser.html")
 
 def unique_email(email):
     
@@ -235,7 +235,7 @@ def checkemail():
 #     query=f"select * from friends where id={id}"
 #     friend= mysql.query_db(query)
 #     print(friend,"@"*70)
-#     return render_template("update_user.htm", friend=friend,update=True)
+#     return render_template("update_user.html", friend=friend,update=True)
    
 #     # print("hello from index")
 #     # mysql = connectToMySQL('first_flask')
@@ -243,7 +243,7 @@ def checkemail():
 #     # friends = mysql.query_db('SELECT * FROM friends;')  
 #     # # call the query_db function, pass in the query as a string
 #     # print(friends)
-#     # return render_template("index.htm",all_friends=friends)
+#     # return render_template("index.html",all_friends=friends)
    
 #     # query=f"UPDATE friends WHERE SET first_name = {firstname}, last_name = {lastname}, occupation = {occupation} id={id};"
 #     # mysql = connectToMySQL('first_flask')

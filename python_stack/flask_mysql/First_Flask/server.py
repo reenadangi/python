@@ -9,16 +9,17 @@ app.secret_key="keep it secret"
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 @app.route("/")
 def index():
-    print("hello from index")
+    print("Hello from index!!")
     mysql = connectToMySQL('first_flask')
     # call the function, passing in the name of our db
     friends = mysql.query_db('SELECT * FROM friends;')  
     # call the query_db function, pass in the query as a string
     print(friends)
-    return render_template("index.htm",all_friends=friends)
-@app.route("/Add_newuser.htm")
+    return render_template("index.html",all_friends=friends)
+
+@app.route("/Add_newuser.html")
 def add_newuser():
-    return render_template("add_newuser.htm")
+    return render_template("add_newuser.html")
 
 def unique_email(email):
     
@@ -81,29 +82,33 @@ def create_user():
         flash("Sucessfully Added!")
         return redirect("/")
     else:
-        return redirect("/Add_newuser.htm")
+        return redirect("/Add_newuser.html")
 
+@app.route("/save", methods=["POST"])
+def save_user():
+    print("In save user")
+    return redirect("/")
 
-    @app.route("/update_user", methods=["POST"])
-    def update_user():
-        print("*"*50, "creating a new user" ,request.form["firstname"],request.form["id"])
-        id=request.form["id"]
-        mySql=connectToMySQL("first_flask")
-        print("its a update")
-        query="UPDATE friends SET first_name= %(fn)s, last_name = %(ln)s, occupation = %(occ)s  WHERE id= %(id)s;"
-        data={
-            "fn":request.form["firstname"],
-            "ln":request.form["lastname"],
-            "occ":request.form["occupation"],
-            "id":request.form["id"]
+@app.route("/update_user", methods=["POST"])
+def update_user():
+    print("*"*50, "creating a new user" ,request.form["firstname"],request.form["id"])
+    id=request.form["id"]
+    mySql=connectToMySQL("first_flask")
+    print("its a update")
+    query="UPDATE friends SET first_name= %(fn)s, last_name = %(ln)s, occupation = %(occ)s  WHERE id= %(id)s;"
+    data={
+        "fn":request.form["firstname"],
+        "ln":request.form["lastname"],
+        "occ":request.form["occupation"],
+        "id":request.form["id"]
         }
-        mysql = connectToMySQL('first_flask')
-        print("Connected to mysql", mysql)
-        print(data)
-        new_user_id=mysql.query_db(query,data)
+    mysql = connectToMySQL('first_flask')
+    print("Connected to mysql", mysql)
+    print(data)
+    new_user_id=mysql.query_db(query,data)
 
-        print(f"new_user_id{new_user_id}")
-        return redirect("/")
+    print(f"new_user_id{new_user_id}")
+    return redirect("/")
 
 
 
@@ -126,7 +131,7 @@ def user_update(id):
     query=f"select * from friends where id={id}"
     friend= mysql.query_db(query)
     print(friend,"@"*70)
-    return render_template("update_user.htm", friend=friend,update=True)
+    return render_template("update_user.html", friend=friend,update=True)
    
     # print("hello from index")
     # mysql = connectToMySQL('first_flask')
@@ -134,7 +139,7 @@ def user_update(id):
     # friends = mysql.query_db('SELECT * FROM friends;')  
     # # call the query_db function, pass in the query as a string
     # print(friends)
-    # return render_template("index.htm",all_friends=friends)
+    # return render_template("index.html",all_friends=friends)
    
     # query=f"UPDATE friends WHERE SET first_name = {firstname}, last_name = {lastname}, occupation = {occupation} id={id};"
     # mysql = connectToMySQL('first_flask')
