@@ -1,0 +1,45 @@
+h1{
+    color:blue;
+    
+}
+#wrapper{
+    margin: 0 auto;
+    min-height: 900px;
+    min-width: 900px;
+    background-color: grey;
+    padding: 20px;
+    text-align: center;
+}
+.box{
+    background-color: #f39521;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+#activities{
+    padding: 0px;
+    overflow: auto;
+    margin: 10px 0 0 0;
+    background-color: #52b3d7;
+}
+a{
+    color: #f39521;
+    background-color: black;
+    padding: 8px 20px 10px 20px;
+    border-radius: 10px;
+    
+}
+#goal-box{
+    padding: 10px;
+}
+img{
+    border-radius: 172px;
+    position: absolute;
+    top:167px;
+    left:710px;
+    height: 150px;
+}
