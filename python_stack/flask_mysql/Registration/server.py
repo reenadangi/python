@@ -90,12 +90,6 @@ def validuser():
     return redirect("/login")
 
 
-
-
-# @app.route("/Add_newuser.html")
-# def add_newuser():
-#     return render_template("add_newuser.html")
-
 def unique_email(email):
     
     # check from db if that email is already excist 
@@ -116,6 +110,7 @@ def unique_email(email):
 @app.route("/create_user", methods=["POST"])
 def create_user():
     is_valid=True
+    # Genrating a Hash in bcrypt
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
     print(f"This is {pw_hash}","!"*80)
     
