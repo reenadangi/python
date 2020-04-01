@@ -1,0 +1,9 @@
+project/myVacations/credentials.json
+project/myVacations/vacay/templates/vacay/Gallery.html
+project/myVacations/vacay/templates/vacay/newDestination.html
+project/myVacations/vacay/templates/vacay/Albums.html
+project/myVacations/users/templates/users/base.html
+project/myVacations/myVacations/settings.py
+project/myVacations/myVacations/__init__.py
+project/myVacations/myVacations/lib/**
+
