@@ -23,6 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'w5tsx4rjy!#j!l!j+7#n8rky48aqahy)b17)z297g%$z$_i%hi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# change this while production 
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -30,7 +31,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# default apps which comes with Django
 INSTALLED_APPS = [
+    'pages.apps.PagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
+# list of middleware django uses
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,13 +51,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+# where URL file is
 ROOT_URLCONF = 'estates.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +73,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'estates.wsgi.application'
 
 
-# Database
+# set up Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
