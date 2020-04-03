@@ -34,6 +34,8 @@ ALLOWED_HOSTS = []
 # default apps which comes with Django
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
+    'listings.apps.ListingsConfig',
+    'realtor.apps.RealtorConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
