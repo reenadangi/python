@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'estates.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Estates',
+        'NAME': 'RealEstates',
         'USER':'postgres',
         'PASSWORD':'root',
         'HOST':'localhost'
@@ -130,3 +130,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'estates/static')
     ]
+# For images
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
+
