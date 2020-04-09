@@ -25,13 +25,12 @@ def contact(request):
     contact = Contact(listing=listing, listing_id=listing_id, name=name, email=email, phone=phone, message=message, user_id=user_id )
 
     contact.save()
-
     # Send email
     # send_mail(
     #   'Property Listing Inquiry',
     #   'There has been an inquiry for ' + listing + '. Sign into the admin panel for more info',
-    #   'traversy.brad@gmail.com',
-    #   [realtor_email, 'techguyinfo@gmail.com'],
+    #   'dojo@gmail.com',
+    #   [realtor_email, 'dojo@gmail.com'],
     #   fail_silently=False
     # )
 
