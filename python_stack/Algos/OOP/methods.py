@@ -14,7 +14,7 @@ class employee:
     def apprasial(self,amount):
         self.pay=self.pay + amount
 
-    # Class methods can be use as alternative constructor, i,t passes class itself
+    # Class methods can be used as alternative constructor, i,t passes class itself
     @classmethod
     def total_emp(cls):
         return cls.no_of_emp
