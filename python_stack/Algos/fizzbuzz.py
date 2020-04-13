@@ -1,18 +1,11 @@
 def fizzBuzz(number):
-    result=""
-    if number>0:
-        for num in range(1,number+1):
-            r=""
-            if num%5==0 and num%3==0:
-                r="FizzBuzz"
-            elif num%5==0:
-                 r="Fizz"
-            elif num%3==0:
-                 r="Buzz"
-            else:
-               r=f"{num}"
+    if number%5==0 and number%3==0:
+        print("FIZZBUZZ")
+    elif number%5==0:
+        print("FIZZ")
+    elif number%3==0:
+        print("BUZZ")
     else:
-        result="Enter Valid Number"
-    return result
+        print("None")
 
-print(fizzBuzz(15))
+fizzBuzz(7)
