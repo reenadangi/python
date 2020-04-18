@@ -136,6 +136,5 @@ bst.insert(3)
 bst.print_tree()
 print(bst.height())  
 print(bst.contains(13))    
-print(f"Max value in tree is : {bst.max()}")       
-print(f"Min value in tree is : {bst.min()}")       
+       
 
