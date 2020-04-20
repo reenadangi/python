@@ -220,6 +220,24 @@ class Sll:
             return True
         else:
             True
+    def oddEven(self):
+        if self.head and self.head.next:
+            temp=self.head
+            odd=self.head
+            even=self.head.next
+            while odd and even:
+                odd.next=odd.next.next
+                odd=odd.next
+                even.next=even.next.next
+                even=even.next
+            odd.next=temp
+            return self
+                
+               
+
+
+        return self
+
 
 
 
