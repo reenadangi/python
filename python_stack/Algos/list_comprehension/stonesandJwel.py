@@ -10,3 +10,9 @@
 J = "aA"
 S = "aAAbbbb"
 print(len([stone for stone in S if stone in J]))
+
+rainbow='vibgyor'
+colors='vibggvpwp'
+res=[]
+[res.append(c) for c in colors if c in rainbow and c not in res]
+print((res))
