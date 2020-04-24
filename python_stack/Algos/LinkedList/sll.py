@@ -87,15 +87,12 @@ class Sll:
     def getMiddle(self, head): 
         if (head == None): 
             return head 
-  
         slow = head 
         fast = head 
-  
         while (fast.next != None and 
                fast.next.next != None): 
             slow = slow.next
             fast = fast.next.next
-              
         return slow 
     def merge(self,a,b):
         result = None
@@ -232,11 +229,19 @@ class Sll:
                 even=even.next
             odd.next=temp
             return self
-                
-               
-
-
         return self
+    def nextLargerNode(self,head):
+        runner=head
+        self.head=self.head.next
+        while(runner.next):
+            runner=runner.next
+        print(f"Last node{runner.value}")
+        runner.next=Node(0)
+        runner.next.next=None
+        return self
+
+
+            
 
 
 
@@ -281,10 +286,28 @@ sll3.insert(2)
 sll3.insert(22)
 sll3.insert(22)
 sll3.insert(2)
+sll3.insert(67)
 print(sll3.isPalindrome(sll3.head))
+print("####")
+sll.sort().display()
 # sll=sll.mergRec(sll.head,sll2.head)
 
 # print(sll.length())
 
 # sll.removeNthFromEnd(2)
+
+print("##########")
+sll4=Sll()
+sll4.insert(15)
+sll4.insert(5)
+sll4.insert(17)
+sll4.insert(10)
+sll4.insert(25)
+sll4.insert(3)
+print("********")
+sll4.mergeSort(sll4.head)
+sll4.display()
+# sll4.sort().display()
+# sll4.nextLargerNode(sll.head).display()
+print("********")
         
