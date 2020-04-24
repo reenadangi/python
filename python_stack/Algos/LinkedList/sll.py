@@ -239,13 +239,32 @@ class Sll:
         runner.next=Node(0)
         runner.next.next=None
         return self
-
-
-            
-
-
-
-
+    def deleteDuplicates(self,head):
+        temp=self.head
+        if temp==None:
+            return
+        while temp.next is not None:
+            if temp.value==temp.next.value:
+                new=temp.next.next
+                temp.next=new
+            else:
+                temp=temp.next
+        return self
+    def deleAllDuplicates(self,head):
+        runner=head
+        head = pre = Node(0)
+        head.next = runner
+        pre.next=runner
+        while runner and runner.next:
+            if runner.value == runner.next.value:
+                while runner and runner.next and runner.value == runner.next.value:
+                    runner = runner.next
+                runner = runner.next
+                pre.next = runner
+            else:
+                pre = pre.next
+                runner = runner.next
+        return head.next
 sll=Sll()
 sll.insert(120)
 sll.insert(13)
@@ -265,10 +284,7 @@ print("After Sort")
 sll.sort().display()
 # merge sort not working 
 # sll.mergeSort(sll.head)
-
-
 print("After Sort")
-
 sll.display()
 sll2=Sll()
 sll2.insert(0)
@@ -300,14 +316,18 @@ print("##########")
 sll4=Sll()
 sll4.insert(15)
 sll4.insert(5)
+sll4.insert(5)
 sll4.insert(17)
 sll4.insert(10)
 sll4.insert(25)
 sll4.insert(3)
 print("********")
-sll4.mergeSort(sll4.head)
-sll4.display()
+sll4.sort().display()
 # sll4.sort().display()
 # sll4.nextLargerNode(sll.head).display()
 print("********")
+# sll4.deleteDuplicates(sll4.head).display()
+sll4.head=sll4.deleAllDuplicates(sll4.head)
+sll4.display()
+
         
