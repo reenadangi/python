@@ -32,3 +32,6 @@ print(df.head(5))
 cols=list(df.columns.values)
 df=df[cols[0:4]+[cols[-1]]+cols[4:12]]
 print(df.head(5))
+
+df=df.groupby(["Name","Type 1"])
+print(df)
