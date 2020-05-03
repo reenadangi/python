@@ -38,9 +38,6 @@ class Sll:
                 runner=runner.next
             runner.next=Node(value)
             return self
-
-
-
     def display(self):
         if self.head:
             runner=self.head
@@ -111,7 +108,6 @@ class Sll:
             result = b 
             result.next = self.merge(a, b.next) 
         return result 
-
     def mergeSort(self,h):
         # Base case if head is None 
         if h == None or h.next == None: 
@@ -133,7 +129,6 @@ class Sll:
         # Merge the left and right lists  
         sortedList= self.merge(left, right) 
         return sortedList 
-   
     def sort(self):
         if self.head:
             runner=self.head
@@ -265,6 +260,35 @@ class Sll:
                 pre = pre.next
                 runner = runner.next
         return head.next
+    def rotateRight(self,head,k):
+        if head is None:
+            return None
+        if head.next and k==0 is None:
+            return head
+        length=1
+        runner=head
+        while(runner.next):
+            length+=1
+            runner=runner.next
+        rotateTimes=k%length
+        if rotateTimes==0:
+            return head
+        slow=head
+        fast=head
+        for i in range(rotateTimes):
+            fast=fast.next
+        while(fast.next):
+            slow=slow.next
+            fast=fast.next
+        temp=slow.next
+        slow.next=None
+        fast.next=head
+        head=temp
+        return head
+
+        
+
+
 sll=Sll()
 sll.insert(120)
 sll.insert(13)
