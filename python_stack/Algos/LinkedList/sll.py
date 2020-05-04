@@ -285,6 +285,43 @@ class Sll:
         fast.next=head
         head=temp
         return head
+    def removeFromBack(self):
+        val=None
+        if self.head:
+            if self.head.next==None:
+                # remove head
+                val=self.head.value
+                self.head=None
+                return val
+            else:
+                runner=self.head
+                while(runner.next):
+                    if runner.next.next==None:
+                        # remove runner.next
+                        val=runner.next.value
+                        runner.next=None
+                        return val
+                    else:
+                        runner=runner.next
+        return False        
+    def insert_at(self, val, n):
+        # insert at nth position
+        if self.head:
+            if n==0:
+                tmp=self.head.next
+                self.head=Node(val)
+                self.head.next=tmp
+            else:
+                runner=self.head
+                i=1
+                while(i<n and runner.next):
+                    i+=1
+                    runner=runner.next
+                tmp=runner.next
+                runner.next=Node(val)
+                runner.next.next=tmp
+
+
 
         
 
@@ -353,5 +390,20 @@ print("********")
 # sll4.deleteDuplicates(sll4.head).display()
 sll4.head=sll4.deleAllDuplicates(sll4.head)
 sll4.display()
+print("**********")
+# print("delete",sll4.removeFromBack())
+# print("delete",sll4.removeFromBack())
+# print("delete",sll4.removeFromBack())
+# print("delete",sll4.removeFromBack())
+# print("delete",sll4.removeFromBack())
+# print("delete",sll4.removeFromBack())
+
+sll4.insert_at(28,1)
+print("%%%%")
+sll4.display()
+
+
+
+
 
         

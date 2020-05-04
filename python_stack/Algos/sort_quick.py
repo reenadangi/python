@@ -21,4 +21,4 @@ def sort(arr):
 
 print(sort([38,27,43,3,9,82,10]))
 
-print(sort([5,2,3,1]))
+print(sort([5,3,2,7,9]))

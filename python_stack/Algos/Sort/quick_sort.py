@@ -18,4 +18,4 @@ def quick_sort(arr,start,end):
 
 def sort(arr):
    return quick_sort(arr,0,len(arr)-1)
-print(sort([11,9,4,22,3,1,4,-1]))
+print(sort([5,3,2,7,9]))
