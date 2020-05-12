@@ -139,13 +139,20 @@ class SLL:
             head=prev
         return head
     def reorder(self):
+        # first find middle
+        # Split it in two parts
+        # reverse second half
+        # zip first and reversed second half
+
         if self.head:
             # find middle
             middle=self.getMiddle(self.head)
             print(f"middle:{middle.value}")
             nextToMiddle=middle.next
             middle.next=None
+            # reverse sec half
             nextToMiddle=self.reverse(nextToMiddle)
+            # zip both the half
             new_node=self.head
             while nextToMiddle:
                 tmp1=new_node.next
