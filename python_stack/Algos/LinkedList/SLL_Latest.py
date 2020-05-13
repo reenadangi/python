@@ -187,8 +187,28 @@ class SLL:
     #         head = head.next
     #     return answer_array
 
-      
+    def swapPairs(self, head):
+        #  Given 1->2->3->4, you should return the list as 2->1->4->3.      
+        if not head and not head.next:return head
+        dummy=Node(0)
+        dummy.next=head
+        runner=dummy
+        while runner.next and runner.next.next:
+            first=runner.next
+            sec=runner.next.next
+            # swap values
+            runner.next=sec
+            first.next=sec.next
+            sec.next=first
+            runner=runner.next.next
+        return dummy.next
+
         
+            
+    
+           
+            
+
 
 
        
@@ -211,7 +231,9 @@ sll2.display()
 sll3=SLL()
 sll3.add_last(2).add_last(7).add_last(4).add_last(3).add_last(5)
 print(sll3.nextLargerNodes(sll3.head))
-
+# swap node
+sll2.head=sll2.swapPairs(sll2.head)
+sll2.display()
 
         
         
