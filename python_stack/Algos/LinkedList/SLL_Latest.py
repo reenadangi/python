@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self,value):
         self.value=value
@@ -161,11 +162,37 @@ class SLL:
                 nextToMiddle.next=tmp1
                 new_node=tmp1
                 nextToMiddle=tmp2
-            
+    def nextLargerNodes(self,head):
+        res, stack = [], []
+        while head:
+            while stack and stack[-1][1] < head.value:
+                res[stack.pop()[0]] = head.value
+            stack.append([len(res), head.value])
+            res.append(0)
+            head = head.next
+    
+        return res
+    # def nextLargerNodes(self, head):
+    #     answer_array = []
+    #     stack = []
+    #     index = 0
+    #     while head:
+    #         answer_array.append(0)
+    #         current_value = head.value
+    #         while stack and stack[-1][0] < current_value:
+    #             last_value = stack.pop()
+    #             answer_array[last_value[1]] = current_value
+    #         stack.append((current_value, index))
+    #         index += 1
+    #         head = head.next
+    #     return answer_array
+
+      
+        
 
 
+       
 
-                
 sll=SLL()
 sll.add_last(12).add_last(13).add_front(20).add_front(40).add_last(1)
 sll.sort()
@@ -181,6 +208,9 @@ sll2=SLL()
 sll2.add_last(1).add_last(2).add_last(3).add_last(4).add_last(5).add_last(6).add_last(7).add_last(8)
 sll2.reorder()
 sll2.display()
+sll3=SLL()
+sll3.add_last(2).add_last(7).add_last(4).add_last(3).add_last(5)
+print(sll3.nextLargerNodes(sll3.head))
 
 
         
