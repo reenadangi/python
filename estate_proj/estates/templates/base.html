@@ -14,20 +14,28 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- LightBox -->
     <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+    <script src="https://js.stripe.com/v3/"></script>  <!-- new -->
+    <script src="{% static 'main.js' %}"></script>
+    
 </head>
 
 <body>
    {% include 'partials/_topbar.html' %} 
    {% include 'partials/_navbar.html' %} 
-   
+   <section class="section">
+    <div class="container">
+      <button class="button is-primary" id="submitBtn">Purchase!</button>
+    </div>
+  </section>
     {%block content%}
     {%endblock%}
     {% include 'partials/_footer.html' %} 
 
+
+    
    
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/lightbox.min.js' %}"></script>
  
 
