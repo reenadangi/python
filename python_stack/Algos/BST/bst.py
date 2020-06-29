@@ -132,9 +132,10 @@ bst.insert(14)
 bst.insert(16)
 bst.insert(15)
 bst.insert(3)
+# bst.delete(3)
 
 bst.print_tree()
-print(bst.height())  
+print(f"height {bst.height()}")  
 print(bst.contains(13))    
        
 
