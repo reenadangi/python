@@ -83,17 +83,30 @@ class BST:
         if value<cur_node.value:
             # it is in left sub tree
             cur_node.left=self._delete(cur_node.left,value)
+            
         elif value>cur_node.value:
             cur_node.right=self._delete(cur_node.right,value)
+            return cur_node
         else:
             # this node to be deleted
             # if no child
             if cur_node.left==None and cur_node.right==None:
-                cur_node=None
-                return cur_node
+                return None
             # if one child
             if cur_node.left==None:
-                temp=cur_node
+                return cur_node.right
+            if cur_node.right==None:
+                return cur_node.left
+            # if two children
+            prev=cur_node.left
+            while prev.right:
+                prev=prev.right
+            self._delete(cur_node,prev.value)
+            prev.right=cur_node.right
+            prev.left=cur_node.left
+            return prev
+
+
 
 
 
@@ -106,6 +119,7 @@ bst.insert(14)
 bst.insert(10)
 bst.insert(8)
 bst.insert(27)
+bst.delete(10)
 bst.printTree()
 print(f"Height {bst.height()}")
 print(f"Contains: {bst.contains(12)}")
