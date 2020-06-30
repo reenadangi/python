@@ -73,7 +73,7 @@ class SLL:
                 while runner2:
                     if runner.value>runner2.value:
                         # swap
-                        runner.value,runner2.value=runner2.value,runner.value
+                        runner2.value,runner.value=runner.value,runner2.value
                     runner2=runner2.next
                 runner=runner.next
         return self

@@ -39,7 +39,7 @@ def print_dojo(dojo):
   for key in dojo.keys():
     print(len(dojo[key]))
     for item in dojo[key]:
-      print(item) 
+      print(item)
  
 
     # print (len(dojo[key]))
