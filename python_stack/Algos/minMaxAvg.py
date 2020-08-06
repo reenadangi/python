@@ -2,7 +2,6 @@ def minMaxAvg(my_lst):
     min=my_lst[0]
     max=my_lst[0]
     total=0
-
     for i in my_lst:
         if min>i:
             min=i

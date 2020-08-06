@@ -1,0 +1,19 @@
+
+pip install Django==1.11.9 - Installs Django which is a high-level Python Web framework 
+
+pip list - The pip list command returns the list of packages in the current environment with their installed version.
+
+deactivate - deactivate virtual environment / as soon as we deactivate $Prompt is changed
+
+pip3 list - After deactivation of VE it shows smaller list / Django,pytz,wheel is missing 
+
+pip freeze - It looks like pip freeze just doesn't list packages that pip itself depends on. You may use the --all flag to show also those packages.
+
+
+pip freeze > requirements.txt  - writes output in requirements.txt 
+Django==1.11.9
+pytz==2019.3
+  
+pip uninstall Django - uninstalls Django 
+pip show Django -  would try to show Django, but it is uninstalled
+pip search Flask - returns flask files 

@@ -19,6 +19,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
 
+
+
 # from oauth2client import file, client, tools
 
 # Create your views here.
@@ -45,10 +47,13 @@ def myGallery(request,destination_id):
     return render(request,"vacay/myGallery.html",context)
 
 def newDestination(request):
+ 
     return render(request,"vacay/newDestination.html")
 
 def add_destination(request):
-    # place_id=models.CharField(max_length=255) 
+
+    
+    # place_id=models.CharField(max_length=2    55) 
     # name=models.CharField(max_length=255) 
     # from_date=models.DateField()
     # to_date=models.DateField()

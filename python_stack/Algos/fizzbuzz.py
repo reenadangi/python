@@ -8,4 +8,4 @@ def fizzBuzz(number):
     else:
         print("None")
 
-fizzBuzz(7)
+fizzBuzz(10)

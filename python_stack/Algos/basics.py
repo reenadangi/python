@@ -3,42 +3,30 @@ def basic():
         print (i)
 
 def multiples_five():
-    for i in range(5,1001,5):
-        print (i)
+    for i in range(5,100,5):
+        print(5)
 
 # Counting, the Dojo Way - Print integers 1 to 100.
 #  If divisible by 5, print "Coding" instead. 
 # If divisible by 10, print "Coding Dojo".
 def the_dojo_way():
-    for i in range(50):
+    for i in range(1,50):
         if i%10==0:
-            print(i, "Coding Dojo")
+            print("Coding Dojo")
         elif i%5==0:
-            print(i,"Coding")
+            print("Coding")
+        else:
+            print(i)
 
-# Add odd integers from 0 to 1000 and print the final sum.
 def add_odd():
     sum=0
-    for i in range(0,1000):
+    for i in range(1,10):
         if i%2!=0:
-            sum+=i 
-    print ("Odd sum is",sum)
-
-# Countdown by Fours - Print positive numbers starting at 2018, counting down by fours.
-def print_positive():
-    for i in range(2018,0,-4):
-        print (i)
+            sum+=i
+    print(f"odd sum{sum}")
+add_odd()
+for i in range(-25000,1,+1):
+    print(i)
 
 
-# basic()
-# multiples_five()
-# the_dojo_way()
-# add_odd()
-print_positive()
-
-
-for i in range(-25000,30001,+1):
-    if i%2!=0:
-        sum+=i
-return i
-    
+the_dojo_way()

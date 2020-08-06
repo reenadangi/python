@@ -1,5 +1,6 @@
 print([n for n in range(1,101)])
 nums=[1,2,2,3,3,4,5,6,7]
+
 print([n for n in nums if n%2==0])
 cars=[
     {'brand':'Ford','model':'Mustang','year':1964},
@@ -8,10 +9,12 @@ cars=[
     {'brand':'BMW','model':'X7','year':2007}
 ]
 print([[car['brand'],car['model']] for car in cars if car['year']>=2000])
+
 # remove duplicates 
 res=[]
 [res.append(i) for i in nums if i not in res ]
 print(res)
+
 # defangIPaddr - replace all . to [.]
 ip='123.123.180.80'
 res=''.join([c if c!='.' else '[.]' for c in ip])
@@ -40,7 +43,7 @@ print(my_dict)
 # set comprehension 
 # set is like list - but it has all unique values 
 nums=[1,2,3,4,5,6,1,3,4,9]
-my_set=set()
+# my_set=set()
 # for n in nums:
 #     my_set.add(n)
 # print(my_set)

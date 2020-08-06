@@ -8,13 +8,11 @@ def removeDuplicate(s):
     # print (i)
     # return ''.join(s[:i+1])
     output=''
+    s=list(s)
     for c in s:
         if c not in output:
-            output=output + c
+            output=output+c
     return output
 
-    
 
-
-
-print(removeDuplicate("aabcdefg"))
+print(removeDuplicate("azabcdefg"))

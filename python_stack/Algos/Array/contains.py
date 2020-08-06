@@ -4,3 +4,4 @@ def containts(arr,num):
 
     
 print(containts([1,33,3,33,5,6,7,33,9,10],33))
+

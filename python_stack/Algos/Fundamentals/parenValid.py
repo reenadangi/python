@@ -11,6 +11,3 @@ def parenValid(str):
         return False
     else: return True
 print(parenValid('(()))'))
-        
-
-        

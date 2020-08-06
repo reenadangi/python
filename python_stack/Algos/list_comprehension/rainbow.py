@@ -1,4 +1,6 @@
-# You're given strings 'Rainbow' representing colors of rainbow, and 'C' representing the colors you have. You want to know how many rainbow colors(unique) you have.
+# You're given strings 'Rainbow' representing colors of rainbow,
+#  and 'C' representing the colors you have. 
+# You want to know how many rainbow colors(unique) you have.
 
 # All characters in Rainbow and C are letters. Letters are case sensitive.
 

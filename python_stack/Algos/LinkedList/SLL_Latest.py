@@ -107,7 +107,7 @@ class SLL:
         if b == None: 
             return a 
         # pick either a or b and recur.. 
-        if a.value <= b.value: 
+        if a.value <=  b.value: 
             result = a 
             result.next = self.sortedMerge(a.next, b) 
         else: 

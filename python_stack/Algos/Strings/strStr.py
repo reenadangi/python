@@ -3,3 +3,4 @@ def strStr(h,n):
         if h[i:i+len(n)]==n:
             return i
         return -1
+print(strStr("hello","ll"))

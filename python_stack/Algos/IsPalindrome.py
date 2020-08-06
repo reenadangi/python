@@ -16,15 +16,14 @@ str="A man, a plan, a canal: Panama"
 #     return True
 
 def isPalindrome(s):
-    s = re.sub(r'\W+', '', s)
+    s=re.sub(r'\W+','',s)
     start=0
     end=len(s)-1
     while start<end:
-        if s[start].upper()!=s[end].upper():
-           return False
-        else:
-            start+=1
-            end-=1
+        if s[start]!=s[end]:
+            return False
+        start+=1
+        end-=1
     return True
 
 print(isPalindrome(str))

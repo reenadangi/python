@@ -1,31 +1,30 @@
 def containduplicate(nums):
-    d=[]
+    lst=[]
     for i in nums:
-        if i in d:
+        if i in lst:
             return True
-        d.append(i)
+        lst.append(i)
     return False
-print(containduplicate([2,3,4,5,6]))
+print(containduplicate([1,2,7,3,4]))
 
-# another way is to sort
+# sort - in place
 def sort(nums):
-    for i in range(0,len(nums)):
-        for j in range(i,len(nums)):
+    for i in range(len(nums)):
+        for j in range(i+1,len(nums)):
             if nums[i]>nums[j]:
                 nums[i],nums[j]=nums[j],nums[i]
     return nums
+
 def removeDuplicates(nums):
-    nums=sort(nums)
-    slow=0
-    fast=1
-    while fast<=len(nums):
-        if nums[slow]==nums[fast]:
-            fast+=1
-        else:
-            slow+=1
-            fast+=1
-    while slow<=len(nums):
-        nums.pop()
-        slow+=1
-    return nums
+    i=0
+    for j in range(i+1,len(nums)):
+        if nums[i]!=nums[j]:
+            i+=1
+            nums[i]=nums[j]
+    return nums[:i]
+    
+    
 print(removeDuplicates([3,4,5,6,3,7,9]))
+nums=sort([55,5,6,6,33,1,0])
+print(removeDuplicates(nums))
+
