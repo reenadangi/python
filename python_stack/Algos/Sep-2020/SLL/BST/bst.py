@@ -46,8 +46,21 @@ class BST:
             return self._search(cur_node.left,n) 
         else:
             return self._search(cur_node.right,n)
+    def contains(self,value):
+        if self.root:
+            return self._containts(self.root,value)
+    def _containts(self,cur_node,value):
+        if cur_node is None:
+            return False
+        if cur_node.value==value:
+            return True
+        if cur_node.value>value:
+            return self._containts(cur_node.left,value)
+        else:
+            return self._containts(cur_node.right,value)
 
 
 bst=BST()
 bst.insert(12).insert(10).insert(16).insert(11).display()
 print(bst.search(10))
+print(bst.contains(17))
