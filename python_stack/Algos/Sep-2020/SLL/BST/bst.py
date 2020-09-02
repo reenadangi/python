@@ -86,15 +86,32 @@ class BST:
             left_height=self._height(cur_node.left)
             right_height=self._height(cur_node.right)
             return max(left_height,right_height)+1
-        
+    def _simpleHeight(self,cur_node):
+        if cur_node is None:
+            return 0
+        x=self._simpleHeight(cur_node.left)
+        y=self._simpleHeight(cur_node.right)
+        if x == -1 or y == -1 or abs(x-y) >1:
+            return -1
+        return max(x,y)+1
+    def isBalanced(self):
+        if self.root is None:
+            return True
+        else:
+            return self._simpleHeight(self.root)!=-1
+    def _isBalanced(self,cur_node):
+        if cur_node is None:
+            return True
+        return self._simpleHeight(cur_node)!=-1
 
 
                      
 
 bst=BST()
-bst.insert(12).insert(10).insert(16).insert(11).insert(7).display()
+bst.insert(12).insert(10).insert(6)
 print(bst.search(10))
 print(bst.contains(17))
 print(f"Max {bst.max()}")
 print(f"Min {bst.min()}")
 print(f"Height {bst.height()}")
+print(f"Is balaced {bst.isBalanced()}")
