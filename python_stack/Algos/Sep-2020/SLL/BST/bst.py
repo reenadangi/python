@@ -76,12 +76,25 @@ class BST:
                     min_value=cur_node.value
                 cur_node=cur_node.left
         return min_value                
-    
+    def height(self):
+        if self.root:
+           return self._height(self.root)
+    def _height(self,cur_node):
+        if cur_node is None:
+            return -1
+        else:
+            left_height=self._height(cur_node.left)
+            right_height=self._height(cur_node.right)
+            return max(left_height,right_height)+1
+        
+
+
                      
 
 bst=BST()
-bst.insert(12).insert(10).insert(16).insert(11).display()
+bst.insert(12).insert(10).insert(16).insert(11).insert(7).display()
 print(bst.search(10))
 print(bst.contains(17))
 print(f"Max {bst.max()}")
 print(f"Min {bst.min()}")
+print(f"Height {bst.height()}")
