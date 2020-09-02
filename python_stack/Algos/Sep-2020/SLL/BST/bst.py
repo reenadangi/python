@@ -25,6 +25,7 @@ class BST:
                 cur_node.right=Node(value)
 
     def display(self):
+        print(self.root.value)
         if self.root:
             self._display(self.root)
     def _display(self,cur_node):
@@ -32,5 +33,21 @@ class BST:
             self._display(cur_node.left)
             print(cur_node.value)
             self._display(cur_node.right)
+    # A utility function to search a given key in BST 
+
+    def search(self,n):
+        if self.root:
+            return self._search(self.root,n)
+    def _search(self,cur_node,n):
+       # Base condition
+        if cur_node is None or cur_node.value==n:
+            return cur_node
+        if cur_node.value>n:
+            return self._search(cur_node.left,n) 
+        else:
+            return self._search(cur_node.right,n)
+
+
 bst=BST()
 bst.insert(12).insert(10).insert(16).insert(11).display()
+print(bst.search(10))
