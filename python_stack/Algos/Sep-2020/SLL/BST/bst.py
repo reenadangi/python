@@ -58,9 +58,30 @@ class BST:
             return self._containts(cur_node.left,value)
         else:
             return self._containts(cur_node.right,value)
-
+    def max(self):
+        if self.root:
+            cur_node=self.root
+            max_value=cur_node.value
+            while cur_node:
+                if cur_node.value>max_value:
+                    max_value=cur_node.value
+                cur_node=cur_node.right
+        return max_value
+    def min(self):
+        if self.root:
+            cur_node=self.root
+            min_value=cur_node.value
+            while cur_node:
+                if cur_node.value<min_value:
+                    min_value=cur_node.value
+                cur_node=cur_node.left
+        return min_value                
+    
+                     
 
 bst=BST()
 bst.insert(12).insert(10).insert(16).insert(11).display()
 print(bst.search(10))
 print(bst.contains(17))
+print(f"Max {bst.max()}")
+print(f"Min {bst.min()}")
