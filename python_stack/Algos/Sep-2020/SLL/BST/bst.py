@@ -3,9 +3,11 @@ class Node:
         self.value=value
         self.left=None
         self.right=None
+        
 class BST:
     def __init__(self):
         self.root=None
+        self.tilt=0
     def insert(self,value):
         if self.root:
             self._insert(self.root,value)
@@ -103,12 +105,23 @@ class BST:
         if cur_node is None:
             return True
         return self._simpleHeight(cur_node)!=-1
+    def findTilt(self):
+        if(self.root == None and (self.root.left==None and self.right==None)):
+             return self.tilt
+        self._findTilt(self.root)
+        return self.tilt
 
-
+    def _findTilt(self, cur_node):
+       if cur_node==None: return 0
+       left = self._findTilt(cur_node.left)
+       right = self._findTilt(cur_node.right)
+       self.tilt+=abs(left - right)
+       return left+right+cur_node.value
                      
 
 bst=BST()
-bst.insert(12).insert(10).insert(6)
+bst.insert(1).insert(2).insert(3)
+print(f"Tilt: {bst.findTilt()}")
 print(bst.search(10))
 print(bst.contains(17))
 print(f"Max {bst.max()}")
