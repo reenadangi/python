@@ -176,7 +176,34 @@ class BST:
             self.postOrder(root.left)
             self.postOrder(root.right)
             print(root.value)
-        
+    def levelOrder(self,root):
+        #enque the root node followed by a None value to indicate the end of first level
+        queue=[root,None]
+        prev=None
+        sol=[]
+        inter=[]
+        while len(queue)!=0:
+            node=queue.pop(0) #pop the node
+            if node is None and prev is None:
+                break
+            if node is not None:
+                #append the childrens of the poped node in BFS queue
+                inter.append(node.value)
+                if node.left is not None:
+                    queue.append(node.left)
+                if node.right is not None:
+                    queue.append(node.right)
+                
+                    
+            else:
+                #when the traversing of a level is complete append the intermediate sequence to the solution sequence
+                sol.append(inter)
+                inter=[]
+                queue.append(None)
+                
+            prev=node
+                
+        return(sol)
                 
                 
 
@@ -216,3 +243,5 @@ print(f"Pre Order:")
 bst2.preOrderTravelsal(bst2.root)
 print(f"Post Order:")
 bst2.postOrder(bst2.root)
+print(f"Level Order:")
+print(bst2.levelOrder(bst2.root))
