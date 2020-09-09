@@ -138,6 +138,9 @@ class BST:
                 if node.left:
                     stack1.append(node.left)
         return out
+    # Time Complexity:  O(n+m)
+    # Space complexity: O(n+m)
+
     def inOrderTraversal(self):
         if self.root:
             lst=[]
@@ -160,8 +163,19 @@ class BST:
         del lst[0]       
         return  self._inOrderCheck(root.right,lst)
             
-
-
+    def preOrderTravelsal(self,root):
+        # Data left right 
+        if root:
+            print(root.value)
+            self.preOrderTravelsal(root.left)
+            self.preOrderTravelsal(root.right)
+    
+    def postOrder(self,root):
+        # left right Data
+        if root:
+            self.postOrder(root.left)
+            self.postOrder(root.right)
+            print(root.value)
         
                 
                 
@@ -198,3 +212,7 @@ if lst1==lst2:
 else:
     print("Oh! no")
 print(bst2._inOrderCheck(bst2.root,lst1) and len(lst1)==0) 
+print(f"Pre Order:")
+bst2.preOrderTravelsal(bst2.root)
+print(f"Post Order:")
+bst2.postOrder(bst2.root)
