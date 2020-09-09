@@ -118,9 +118,66 @@ class BST:
        self.tilt+=abs(left - right)
        return left+right+cur_node.value
                      
+    def zigzagLevelOrder(self, root):
+        if not root: return []
+        out=[]
+        stack1,stack2=[root],[]
+        while stack1 or stack2:
+            while stack1:
+                node=stack1.pop()
+                out.append(node.value)
+                if node.left:
+                    stack2.append(node.left)
+                if node.right:
+                    stack2.append(node.right)
+            while stack2:
+                node=stack2.pop()
+                out.append(node.value)
+                if node.right:
+                    stack1.append(node.right)
+                if node.left:
+                    stack1.append(node.left)
+        return out
+    def inOrderTraversal(self):
+        if self.root:
+            lst=[]
+            return self._inOrderTraversal(self.root,lst)
+           
+    def _inOrderTraversal(self,cur_node,lst):
+        if not cur_node:
+            return lst
+        self._inOrderTraversal(cur_node.left,lst)
+        lst.append(cur_node.value)
+        self._inOrderTraversal(cur_node.right,lst)
+        return lst
+    def _inOrderCheck(self,root,lst):
+        if root is None: return True
+        if not self._inOrderCheck(root.left,lst):
+            return False
+
+        if not lst or lst[0]!=root.value:
+            return False
+        del lst[0]       
+        return  self._inOrderCheck(root.right,lst)
+            
+
+
+        
+                
+                
+
+
+
+     
+
+
+
+
+
+
 
 bst=BST()
-bst.insert(1).insert(2).insert(3)
+bst.insert(9).insert(3).insert(20).insert(15).insert(7).insert(2).insert(25)
 print(f"Tilt: {bst.findTilt()}")
 print(bst.search(10))
 print(bst.contains(17))
@@ -128,3 +185,16 @@ print(f"Max {bst.max()}")
 print(f"Min {bst.min()}")
 print(f"Height {bst.height()}")
 print(f"Is balaced {bst.isBalanced()}")
+
+bst.display()
+print(bst.zigzagLevelOrder(bst.root))
+
+lst1=bst.inOrderTraversal()
+bst2=BST()
+bst2.insert(9).insert(20).insert(3).insert(15).insert(7).insert(2).insert(25)
+lst2=bst2.inOrderTraversal()
+if lst1==lst2:
+    print("Yes")
+else:
+    print("Oh! no")
+print(bst2._inOrderCheck(bst2.root,lst1) and len(lst1)==0) 
