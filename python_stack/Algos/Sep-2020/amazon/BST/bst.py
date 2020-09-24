@@ -1,4 +1,5 @@
 class Node:
+    total=0
     def __init__(self,value):
         self.value=value
         self.left=None
@@ -193,19 +194,137 @@ class BST:
                     queue.append(node.left)
                 if node.right is not None:
                     queue.append(node.right)
-                
-                    
             else:
                 #when the traversing of a level is complete append the intermediate sequence to the solution sequence
                 sol.append(inter)
                 inter=[]
                 queue.append(None)
-                
             prev=node
-                
         return(sol)
                 
+# Convert BST to Greater Tree
+    def convertBST(self):
+        if self.root:
+            cur_sum=[0]
+            self._convertBST(self.root,cur_sum)
+            return self
+    def _convertBST(self,cur_node,cur_sum):
+        if cur_node is None:
+            return 
+        self._convertBST(cur_node.right,cur_sum)
+        cur_node.value+=cur_sum[0]
+        cur_sum[0]=cur_node.value
+        self._convertBST(cur_node.left,cur_sum)
+# Invert a tree
+    def invertTree(self, root):
+        if root is None:
+            return
+        left=self.invertTree(root.left)
+        right=self.invertTree(root.right)
+#         swap
+        root.left=right
+        root.right=left
+        return self
+
+# sum of all leaves
+    def leafSum(self,root): 
+        global total 
+        if root is None: 
+            return
+        if (root.left is None and root.right is None): 
+            total += root.value 
+        self.leafSum(root.left) 
+        self.leafSum(root.right) 
+        return total
+# sum of all nodes
+    def sum(self,root):
+        global sum
+        if root is None:
+            return 0
+        root.left=self.sum(root.left)
+        sum+=root.value
+        root.right=self.sum(root.right)
+        return sum
+# Find the sum of all left leaves in a given binary tree.
+    def sumOfLeftLeaves(self,root):
+        if root == None: return 0
+        if(root.left != None and root.left.left == None and root.left.right == None):
+            return root.left.value + self.sumOfLeftLeaves(root.right)
+        else: 
+            return self.sumOfLeftLeaves(root.left) + self.sumOfLeftLeaves(root.right)
+     
+# Function to find a pair with given sum in given BST
+# Travese in tree inorder and insert value in set
+# check for every node diff between given sum and and node's value is found in set 
+    def findPair(self,root, sum, set):  
+        # base case
+        if root is None:
+            return False
+      # return true if pair is found in the left subtree else continue
+        # processing the node
+        if self.findPair(root.left, sum, set):
+            return True
+
+        # if pair is formed with current node, print the pair and return True
+        if sum - root.value in set:
+            print("Pair found", (sum - root.value, root.value))
+            return True
+
+        # insert current node's value into the set
+        else:
+            set.add(root.value)
+
+        # search in right subtree
+        return self.findPair(root.right, sum, set)
+    
+    def sortedArrayToBST(self, nums):
+        return self.buildTree(0, len(nums)-1,nums)
+        
+    
+    def buildTree(self,left,right,nums):
+            if left > right:
+                return None
+            mid = (left + right) // 2
+            newNode = TreeNode(nums[mid])
+            newNode.left = self.buildTree(left, mid-1,nums)
+            newNode.right = self.buildTree(mid+1, right,nums)
+            return newNode
+            
+    def sortedListToBST(self, head):
+        arr = []
+        while head:
+            arr.append(head.val)
+            head = head.next
+			
+        def tree(vals):
+            if not len(vals): return None
+            mid = len(vals)//2
+            node = TreeNode(vals[mid])
+            node.left = tree(vals[:mid])
+            node.right = tree(vals[mid+1:])
+            return node
+        
+        return tree(arr)
+    def isBalanced(self, root):
+        if root is None: return 1
+        mem = []
+        def search(root):
+            if root is None: return 0
+            depth_left = 1 + search(root.left)
+            depth_right = 1 + search( root.right)
+            if abs( depth_left - depth_right ) >= 2: mem.append(False); 
+            return max( depth_left , depth_right )
+        
+        search(root)
+        return len(mem)==0
+      
                 
+
+
+
+
+
+
 
 
 
@@ -245,3 +364,28 @@ print(f"Post Order:")
 bst2.postOrder(bst2.root)
 print(f"Level Order:")
 print(bst2.levelOrder(bst2.root))
+print("Convert BST in greater Tree")
+bst3=BST()
+bst3.insert(5).insert(2).insert(13)
+
+print(bst3.inOrderTraversal())
+print(bst3.convertBST().inOrderTraversal())
+
+bst4=BST()
+bst4.insert(12).insert(10).insert(11).insert(6).insert(15).insert(14).insert(13)
+bst4.invertTree(bst3.root).display()
+total=0
+print(f"Sum of leaf nodes {bst4.leafSum(bst4.root)}")
+sum=0
+print(f"Sum of all nodes {bst4.sum(bst4.root)}")
+leftSum=0
+bst5=BST()
+
+bst5.insert(12).insert(11).insert(10).insert(9).insert(16).insert(15)
+print(f"Sum of all left nodes {bst5.sumOfLeftLeaves(bst5.root)}")
+
+# find pair 
+s=set()
+sum=20
+if not bst5.findPair(bst5.root, sum, s):
+		print("Pair do not exists")
