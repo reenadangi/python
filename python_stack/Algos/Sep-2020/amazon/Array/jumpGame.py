@@ -1,4 +1,4 @@
-# https://www.youtube.com/watch?v=PEgwWGoKUaY
+#       
 def jump(nums):
         currdes,step,des=0,0,0
         for i in range(len(nums)-2):

@@ -55,7 +55,6 @@ class SLL:
         # Input: 1->2->3->4->5->NULL, m = 2, n = 4
         # Output: 1->4->3->2->5->NULL
            # Empty list
-        print("****************")
         if not head:
             return None
         # Move the two pointers until they reach the proper starting point
@@ -105,10 +104,8 @@ class SLL:
     def removeZeroSumSublists(self, head):
         dummy=Node(0)
         dummy.next=head
-        
         runner=dummy
         runner2=dummy
-        
         while runner:
             sm=0
             while runner2:
@@ -171,7 +168,7 @@ class SLL:
                     break
             self=self.reverseList(self.head)
             if carry:
-                newHead=Node(1)
+                newHead=Node(1)         
                 newHead.next=self.head
                 self.head=newHead
             return self
@@ -254,20 +251,23 @@ class SLL:
 sll=SLL()
 sll.insert(12).insert(13).insert(15).reverseList(sll.head).display(sll.head)
 sll2=SLL()
-sll2.insert(1).insert(1).display(sll2.head).plusOne(sll2.head).display(sll2.head)
 
-print("Reverse 2")
-sll.insert(120).insert(100).insert(90)
-sll.display(sll.head)
-sll.head=sll.reverseBetween(sll.head,2,4)
-sll.display(sll.head)
-sll4=SLL()
-sll4.insert(1).insert(2).insert(3).insert(-3).insert(4)
-sll4.head=sll4.removeZeroSumSublists(sll4.head)
-print("*****************")
-sll4.display(sll4.head)
+sll2.insert(1).insert(9).display(sll2.head)
+print("PLus one")
+sll2.plusOne(sll2.head).display(sll2.head)
 
-sll5=SLL()
-print("Delete M node after n nodes")
+# print("Reverse 2")
+# sll.insert(120).insert(100).insert(90)
+# sll.display(sll.head)
+# sll.head=sll.reverseBetween(sll.head,2,4)
+# sll.display(sll.head)
+# sll4=SLL()
+# sll4.insert(1).insert(2).insert(3).insert(-3).insert(4)
+# sll4.head=sll4.removeZeroSumSublists(sll4.head)
+# print("*****************")
+# sll4.display(sll4.head)
 
-sll5.insert(1).insert(2).insert(3).insert(4).insert(5).insert(6).deleteNnodesAfterM(2,2).display(sll5.head)
+# sll5=SLL()
+# print("Delete M node after n nodes")
+
+# sll5.insert(1).insert(2).insert(3).insert(4).insert(5).insert(6).deleteNnodesAfterM(2,2).display(sll5.head)

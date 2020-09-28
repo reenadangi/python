@@ -14,6 +14,18 @@ def subarraySum(nums,k):
             my_dict[sum]=1
         i+=1
     return count
+def another(nums,k):
+    count=0
+    sum=0
+    for i in nums:
+        sum+=i
+        if sum==k:
+            count+=1
+            sum=0
+        
+    return count
 
 
-print(subarraySum([1,1,1],3))
+
+
+print(another([1,1,1],3))

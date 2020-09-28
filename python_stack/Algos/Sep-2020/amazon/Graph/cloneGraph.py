@@ -6,7 +6,6 @@ def cloneGraph(self, node):
         def helper(node, seen):
             if node in seen:
                 return seen[node]
-
             copy = Node(node.val, [])
             seen[node] = copy
             for neighbor in node.neighbors:

@@ -17,4 +17,4 @@ def canJump(nums):
         return False
 
     
-print(canJump([2,3,1,1,4]))
+print(canJump([2,3,0,0,4]))

@@ -28,7 +28,6 @@ class Graph:
         parent={}
         travel_time={}
         dfs_traversal_output=[]
-
         for node in self.adj_list.keys():
             color[node]="W"
             parent[node]=None
