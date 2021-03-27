@@ -1,0 +1,65 @@
+000214630
+
+cd C:\Reena Dangi\python_stack\my_environments\djangoPy3Env\Scripts
+> call djangoPy3Env\Scripts\activate
+cd C:\Reena Dangi\python_stack\django\project_one
+python manage.py runserver
+
+
+>django-admin startproject your_project_name_here
+
+>cd your_project_name_here
+
+>python manage.py runserver
+>python manage.py startapp your_app_name_here
+>python manage.py runserver
+>code .
+> create urls.py in your app
+	from django.contrib import admin
+	from django.urls import path
+
+	urlpatterns = [
+    	path('', views.home, name='app2-home'),
+	]
+>create a method in views
+	def home(request):
+    		return render(request, "home.html")
+>create a folder templates in root app (app2->tempaltes)
+>create  another folder in templates with same name as app(app2->tempalates->app2)
+>create home.html in that folder(app2->tempalates->app2->home.html)
+>go to setting.py and add app name ('app2.apps.App2Config',) app2 is app name.apps.get method name from apps.py
+>go to views -> change method - >
+	def home(request):
+    		return render(request,'app2/home.html')
+
+
+> Creating 2 apps 
+app1 
+app2
+
+1. put both the apps in installed apps
+2. project urls.py - 
+urlpatters=[
+path('',include('app_one.urls')),
+path('two',include('app_two.urls))
+]
+
+app2.urls.py
+3. urls.py 
+urlpatters=[
+path('',views,index)
+]
+localhost:8000/two/
+will call index of two
+
+2. app1 urls.py
+urlpatters=[
+path('',views.index),
+path('hello',views.hello)
+]
+
+
+.html
+<a href="/hello">App1</a>
+<a href="/two">app2</a>
+

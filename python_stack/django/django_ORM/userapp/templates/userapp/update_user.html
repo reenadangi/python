@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update User</title>
+</head>
+<body>
+    <form action="/update/" method="POST">
+        {% csrf_token %}
+        
+    First name: <input type="text" name="first_name" placeholder="First name" value={{user.first_name}}>
+    Last name: <input type="text" name="last_name" placeholder="Last name" value={{user.last_name}}>
+    Email : <input type="text" name="email" placeholder="Email" value={{user.email_address}}>
+    Age name: <input type="text" name="age" placeholder="Age" value={{user.age}}> 
+    
+    <input type="submit" value="update user!">   
+    <input type="hidden" name="user_id" value={{user.id}}>
+</form>
+</body>
+</html>

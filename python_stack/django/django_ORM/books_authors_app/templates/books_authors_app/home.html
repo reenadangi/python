@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books and authors</title>
+</head>
+<body>
+    <h1>This is my BOOKS SITE !</h1>
+    <small><a href="/authors/">Authors</a></small>
+   <form action="/add_book/" method="POST">
+    {% csrf_token %} 
+    <h2>Add a book</h2>
+    Title: <input type="text" name="title">
+    <br>
+    Description: <input type="text" name="desc">
+   <br>
+    <input type="submit" name="add_book" value="Add">
+
+</form>
+    {%for book in books%}
+       
+    <p>{{book.id}}  {{book.title}}
+     <a href="/view_bookDetails/{{book.id}}">View</a>
+    </p>
+    {%endfor%}
+  
+</body>
+</html>

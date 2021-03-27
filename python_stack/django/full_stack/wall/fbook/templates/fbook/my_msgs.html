@@ -1,0 +1,11 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h3>Messages</h3>
+
+<h4>{{the_user}}</h4>
+{%for message in the_user.messages.all%}
+<br>
+{{message.message}}
+{%endfor%}
+{% endblock content%}

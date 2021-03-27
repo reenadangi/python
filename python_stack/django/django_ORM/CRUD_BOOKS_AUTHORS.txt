@@ -1,0 +1,80 @@
+> from books_authors_app.models import Books
+> from books_authors_app.models import Authors
+
+>from books_authors_app.models import Authors
+>from books_authors_app.models import Books
+>Books.objects.all()
+>Authors.objects.all()
+>ruby=Books.objects.create(title='ruby',desc='ruby on rails')
+>php=Books.objects.create(title='php',desc='scripting langunage')
+>python=Books.objects.create(title='python',desc='mechine learning')
+>java=Books.objects.create(title='java',desc='spring')
+>csharp=Books.objects.create(title='csharp',desc='dot net')
+>lau=Authors.objects.create(first_name='lau',last_name='tzu')
+>
+>
+>
+
+>make change in Author model 
+	notes=models.TextField(default="Notes")
+
+
+>makemigration
+>migrate
+>shell
+>> from books_authors_app.models import Books
+> from books_authors_app.models import Authors
+>Authors.objects.all()
+>Books.objects.all()
+
+*****update****
+
+csharp=Books.objects.get(title='csharp')
+
+csharp.title='c#'
+csharp.save()
+
+au=Authors.objects.get(id=4)
+au.first_name='bill'
+au.save()
+*******************************many to many **********
+
+>bk1=Books.objects.get(id=1)
+>bk2=Books.objects.get(id=2)
+>au=Authors.objects.get(id=4)
+>au.books.add(bk1)
+>au.books.add(bk2)
+>au.books.all().values()
+
+>au.books.add(Books.objects.get(id=1))
+>au.books.add(Books.objects.get(id=2))
+>au.books.add(Books.objects.get(id=3))
+>au.books.add(Books.objects.get(id=4))
+>au.books.add(Books.objects.get(id=5))
+
+*******************many to many****
+>Query: Retrieve all the authors for the 3rd book
+bk=Books.objects.get(id=3)
+bk.authors.all().values()
+*****************Remove the first author of the 3rd book***********
+bk=Books.objects.get(id=3)
+bk.authors.remove(bk.authors.first())
+
+*******Query: Add the 5th author as one of the authors of the 2nd book****
+>bk=Books.objects.get(id=2)
+bk.authors.add(Authors.objects.get(id=5))
+*****************Query: Find all the books that the 3rd author is part of*********
+au=Authors.objects.get(id=5)
+au.books.all().values()
+
+
+***Query: Find all the authors that contributed to the 5th book***
+bk=Books.objects.get(id=5)
+bk.authors.all().values()
+
+
+
+*********exclude*****
+authors who have contributed already for this book 
+
+>authors= Authors.objects.exclude(books=Books.objects.get(id=book_id))

@@ -1,0 +1,55 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+<div class="content-section">
+    <!-- <h4>Welcome Home!
+    {{user.id}}
+    {{user.username}}
+    {{user.email}}
+
+</h4> -->
+
+{% with count=1 %}   
+
+<h1>This is my Jinja variable {{count}}</h1>    
+{% endwith%}
+
+
+
+<form action="{%url 'postmsg' %}" method="POST">
+        {% csrf_token %}
+        <textarea class="form-control" name="msgbox" cols="100" rows="3">
+  </textarea>
+        <input class="btn btn-primary mb-2 m-2" type="submit" value="Post Your message">
+    </form>
+
+    {%for msg in msgs %}
+    <br>
+    <div class="bg-dark text-white p-2">
+        <a href="{%url 'my_msgs' msg.poster.id %}">{{msg.poster.username}}</a>
+        <span class="ml-5"><small>{{msg.created_at}} </small></span>
+
+        <p class=" font-italic bg-secondary text-white p-2">{{msg.message}}
+            {%if msg.poster.username == user.username%}
+            <span><small><a href="{%url 'delete_msg' msg.id %}">Delete</a></small></span>
+            {%endif%}
+        </p>
+
+        {% for comment in msg.msg_comments.all %}
+        <p><span class="text-success">{{comment.comment_by}} </span>: {{comment.comment}}</p>
+        {% endfor %}
+
+        <form action="{%url 'postcomment' %}" method="POST">
+            {% csrf_token %}
+            <textarea class="form-control" name="comment" cols="30" rows="1"></textarea>
+            <input class="btn btn-primary mb-2 m-2" type="submit" name="" value="comment">
+            <input type="hidden" name="msg" value={{msg.id}}>
+
+        </form>
+    </div>
+    {%endfor%}
+    {% endblock content%}
+</div>

@@ -216,6 +216,69 @@ class SLL:
             node.next=ListNode(i)
             node=node.next
         return head.next
+    def removeNthFromEnd(self, head, n):
+        if n == 0:
+            return head
+        
+        fast,slow,i=head,head,0
+        while fast:
+            if i >= n:
+                if fast.next:
+                    slow=slow.next
+                else:
+                    slow.next=slow.next.next
+            fast=fast.next
+            i+=1
+
+        if i==n:
+            return head.next
+        else:
+            return head
+    def rotateRight(self, head, k):
+        # first connect head to tail so that rotation becomes easy
+        # at the same time find the len of linked list
+        # new head=lenth-k
+        if head:
+            runner=head
+            l=1
+            while runner.next:
+                l+=1
+                runner=runner.next
+            runner.next=head
+            k%=l
+            if k==0:
+                return head
+            new_head=l-k
+            
+            for i in range(new_head,1,-1):
+                head=head.next
+            runner=head.next
+            head.next=None
+            return runner
+    def addTwoNumbers(self, l1, l2):
+        # create a dummy node 
+        dummy=cur=Node(0)
+        carry=0
+        while l1 or l2:
+            sum=carry
+            if l1:
+                sum+=l1.val
+                l1=l1.next
+            if l2:
+                sum+=l2.val
+                l2=l2.next
+            cur.next=Node(sum%10)
+            cur=cur.next
+            carry=sum//10
+        if carry:
+            cur.next=Node(carry)
+        return dummy.next
+
+            
+
+            
+            
+
 #         if not lists:
 #             return
 #         if len(lists)==1:
@@ -271,3 +334,20 @@ sll2.plusOne(sll2.head).display(sll2.head)
 # print("Delete M node after n nodes")
 
 # sll5.insert(1).insert(2).insert(3).insert(4).insert(5).insert(6).deleteNnodesAfterM(2,2).display(sll5.head)
+sll6= SLL()
+sll6.head=sll6.insert(1).insert(2).insert(3).insert(4).insert(5).insert(6).removeNthFromEnd(sll6.head,2)
+sll6.display(sll6.head)
+
+# sll7= SLL()
+# sll7.insert(1).insert(2).insert(3).insert(4).insert(5).insert(6).display(sll7.head)
+# sll7.head=sll7.rotateRight(sll7.head,2)
+# print("Rotated list")
+# sll7.display(sll7.head)
+# print("Add two list")
+
+# s1=SLL()
+# s2=SLL()
+# s1.insert(2).insert(4).insert(3)
+# s2.insert(5).insert(6).insert(4)
+# s1.head=s1.addTwoNumbers(s1.head,s2.head)
+# s1.display(s1.head)

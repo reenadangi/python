@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome home user!</h1>
+   
+        
+        {%for user in users%}
+       
+        <p>{{user.first_name}},{{user.last_name}},{{user.email_address}},{{user.age}},{{user.created_at}}
+         <a href="/update_user/{{user.id}}">update</a>
+        </p>
+    
+        {%endfor%}
+   
+    <a href="/add_user/">Add new user!</a>
+</body>
+
+</html>
